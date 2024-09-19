@@ -11,7 +11,8 @@ let food = generateFood();
 let direction = "right";
 let gameSpeedDelay = 200;
 let gamestarted = false;
-let highScore = localStorage.getItem("highScore") ? parseInt(localStorage.getItem("highScore")) : 0; // Retrieve high score from local storage
+let highScore = 0;
+// let highScore = localStorage.getItem("highScore") ? parseInt(localStorage.getItem("highScore")) : 0; // Retrieve high score from local storage
 let gameInterval;
 
 //draw map, snake,food
@@ -182,9 +183,8 @@ function updateHighScore() {
   const currentScore = snake.length - 1;
   if (currentScore > highScore) {
     highScore = currentScore;
-    localStorage.setItem("highScore", highScore); // Save the new high score to local storage
-    highScoreText.textContent =
-      "HighScore: " + currentScore.toString().padStart(3, "0");
+    // localStorage.setItem("highScore", highScore); // Save the new high score to local storage
+    highScoreText.textContent = "HighScore: " + currentScore.toString().padStart(3, "0");
   }
   highScoreText.style.display = "block";
 }
